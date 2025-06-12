@@ -32,6 +32,9 @@ const ProductApp = (function () {
     searchInput: document.getElementById("searchInput"),
     categoryFilter: document.getElementById("categoryFilter"),
     sortOption: document.getElementById("sortOption"),
+    
+    // Scroll to top
+    scrollToTopBtn: document.querySelector(".scroll-to-top"),
   };
 
   // Constants
@@ -571,11 +574,40 @@ const ProductApp = (function () {
     }
   };
 
+  // Scroll to top functionality
+  const ScrollToTop = {
+    init() {
+      if (!DOM.scrollToTopBtn) return;
+      
+      // Show/hide button based on scroll position
+      window.addEventListener('scroll', this.toggleVisibility.bind(this));
+      
+      // Scroll to top when clicked
+      DOM.scrollToTopBtn.addEventListener('click', this.scrollToTop.bind(this));
+    },
+    
+    toggleVisibility() {
+      if (window.scrollY > 300) {
+        DOM.scrollToTopBtn.classList.add('visible');
+      } else {
+        DOM.scrollToTopBtn.classList.remove('visible');
+      }
+    },
+    
+    scrollToTop() {
+      window.scrollTo({
+        top: 0,
+        behavior: 'smooth'
+      });
+    }
+  };
+
   // Public API
   return {
     init: function () {
       document.addEventListener('DOMContentLoaded', () => {
         ProductManager.init();
+        ScrollToTop.init();
       });
     }
   };
