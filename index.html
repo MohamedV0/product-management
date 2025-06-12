@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Product Management System</title>
+    <link rel="icon" href="./images/product-management.png" />
+    <link rel="stylesheet" href="./css/all.min.css" />
+    <link rel="stylesheet" href="./css/bootstrap.min.css" />
+    <link rel="stylesheet" href="./css/main.css" />
+    <link rel="stylesheet" href="./css/sweetalert-custom.css" />
+  </head>
+  <body>
+    <main class="py-5">
+      <div class="container">
+        <div class="row justify-content-center mb-4">
+          <div class="col-lg-10">
+            <div class="text-center mb-2">
+              <h1 class="mb-2">Product Management System</h1>
+            </div>
+          </div>
+        </div>
+        
+        <div class="row justify-content-center mb-5">
+          <div class="col-lg-10">
+            <div class="product-form-container p-4 p-md-5 shadow-sm">
+              <h2 class="mb-4 text-center fw-medium">
+                <i class="fa-solid fa-box me-2"></i>
+                Manage your products
+              </h2>
+              <div class="row g-4">
+                <div class="col-md-6">
+                  <div class="mb-3">
+                    <label for="productName" class="form-label mb-2">
+                      <i class="fa-solid fa-tag pe-2"></i>
+                      Product Name
+                    </label>
+                    <input
+                      type="text"
+                      placeholder="Product Name"
+                      class="form-control"
+                      id="productName"
+                    />
+                    <small class="form-text text-danger d-none fs-6" id="productNameError">
+                      Product Name Must Start With Capital Letter And Min 3 Max 15 Characters
+                    </small>
+                  </div>
+                </div>
+                
+                <div class="col-md-6">
+                  <div class="mb-3">
+                    <label for="productPrice" class="form-label mb-2">
+                      <i class="fa-solid fa-dollar-sign pe-2"></i>
+                      Product Price
+                    </label>
+                    <input
+                      type="number"
+                      placeholder="Product Price"
+                      class="form-control"
+                      id="productPrice"
+                    />
+                    <small class="form-text text-danger d-none fs-6" id="productPriceError">
+                      Product Price Must Be Between 100 And 999
+                    </small>
+                  </div>
+                </div>
+                
+                <div class="col-md-6">
+                  <div class="mb-3">
+                    <label for="productCategory" class="form-label mb-2">
+                      <i class="fa-solid fa-list pe-2"></i>
+                      Category
+                    </label>
+                    <select class="form-select" id="productCategory">
+                      <option value="">Select a category</option>
+                      <option value="Phones">📱 Phones</option>
+                      <option value="Screens">🖥️ Screens</option>
+                      <option value="AirPods">🎧 AirPods</option>
+                      <option value="Watches">⌚ Watches</option>
+                      <option value="Other">📦 Other</option>
+                    </select>
+                    <small class="form-text text-danger d-none fs-6" id="productCategoryError">
+                      Product Category Must Be Phones, Screens, AirPods Or Watches
+                    </small>
+                  </div>
+                </div>
+                
+                <div class="col-md-6">
+                  <div class="mb-3">
+                    <label for="productImage" class="form-label mb-2">
+                      <i class="fa-solid fa-image pe-2"></i>
+                      Product Image
+                    </label>
+                    <div class="custom-file-input">
+                      <input
+                        type="file"
+                        class="d-none"
+                        id="productImage"
+                        accept="image/*"
+                      />
+                      <label for="productImage" class="file-input-label">
+                        <span id="fileName">No file chosen</span>
+                        <span class="file-input-button">Browse</span>
+                      </label>
+                    </div>
+                    <small class="form-text text-danger d-none fs-6" id="productImageError">
+                      Product Image is required
+                    </small>
+                  </div>
+                </div>
+                
+                <div class="col-12">
+                  <div class="mb-4">
+                    <label for="productDescription" class="form-label mb-2">
+                      <i class="fa-solid fa-align-left pe-2"></i>
+                      Description
+                    </label>
+                    <textarea
+                      placeholder="Product Description"
+                      class="form-control"
+                      id="productDescription"
+                      rows="3"
+                    ></textarea>
+                    <small class="form-text text-danger d-none fs-6" id="productDescriptionError">
+                      Product Description Must Be Min 4 Max 255 Characters
+                    </small>
+                  </div>
+                </div>
+                
+                <div class="col-12 text-center">
+                  <button class="btn btn-submit px-5 py-2 fw-medium" id="submitBtn">Add product</button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="row justify-content-center mb-5">
+          <div class="col-lg-10">
+            <div class="search-sort-container p-4 shadow-sm">
+              <div class="row">
+                <div class="col-md-6 mb-3 mb-md-0">
+                  <div class="input-group">
+                    <span class="input-group-text"><i class="fa-solid fa-search"></i></span>
+                    <input type="text" class="form-control" placeholder="Search products..." id="searchInput">
+                  </div>
+                </div>
+                
+                <div class="col-md-6">
+                  <div class="input-group">
+                    <span class="input-group-text"><i class="fa-solid fa-filter"></i></span>
+                    <select class="form-select" id="categoryFilter">
+                      <option value="">All Categories</option>
+                      <option value="Phones">📱 Phones</option>
+                      <option value="Screens">🖥️ Screens</option>
+                      <option value="AirPods">🎧 AirPods</option>
+                      <option value="Watches">⌚ Watches</option>
+                      <option value="Other">📦 Other</option>
+                    </select>
+                    <select class="form-select" id="sortOption">
+                      <option value="newest">Newest First</option>
+                      <option value="oldest">Oldest First</option>
+                      <option value="nameAsc">Name (A-Z)</option>
+                      <option value="nameDesc">Name (Z-A)</option>
+                      <option value="priceAsc">Price (Low to High)</option>
+                      <option value="priceDesc">Price (High to Low)</option>
+                    </select>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="row justify-content-center">
+          <div class="col-lg-10">
+            <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4" id="productsContainer"></div>
+            
+            <div id="emptyState" class="text-center py-5 empty-state d-none shadow-sm">
+              <i class="fa-solid fa-box-open fa-2x mb-3"></i>
+              <p class="mb-0">No products found</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+    
+    <script src="js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="js/sweetalert-config.js"></script>
+    <script src="js/index.js"></script>
+  </body>
+</html>

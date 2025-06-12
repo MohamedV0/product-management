@@ -1,0 +1,161 @@
+/* SweetAlert Custom Styling */
+:root {
+  --swal-box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.2), 0 4px 6px -2px rgba(0, 0, 0, 0.1);
+  --swal-border-radius: 0.75rem;
+  --swal-animation-duration: 0.3s;
+  --action-edit: #0ea5e9;
+  --action-edit-hover: #0284c7;
+}
+
+/* Base Toast & Popup Styles */
+.custom-toast-popup,
+.custom-confirm-popup {
+  font-family: var(--font-primary);
+  border-radius: var(--swal-border-radius);
+  box-shadow: var(--swal-box-shadow);
+  transition: all var(--swal-animation-duration);
+  border: 1px solid var(--border-color) !important;
+  background-color: var(--secondary-bg) !important;
+  color: var(--text-primary) !important;
+}
+
+.custom-toast-popup {
+  padding: 12px 20px;
+  transform: translateY(0);
+}
+
+.custom-toast-popup .swal2-title {
+  font-size: 16px;
+  color: var(--text-primary) !important;
+  margin: 0;
+  font-weight: 600;
+}
+
+.custom-toast-popup .swal2-html-container {
+  font-size: 14px;
+  margin: 8px 0 0;
+  color: var(--text-secondary) !important;
+}
+
+.custom-confirm-popup {
+  padding: 20px;
+  transform: scale(1);
+}
+
+.custom-confirm-popup .swal2-title {
+  font-family: var(--font-heading);
+  font-size: 24px;
+  color: var(--text-primary) !important;
+  font-weight: 600;
+}
+
+.custom-confirm-popup .swal2-html-container {
+  color: var(--text-secondary) !important;
+}
+
+.swal2-timer-progress-bar {
+  background-color: rgba(56, 189, 248, 0.5) !important;
+}
+
+.swal2-styled {
+  transition: all 0.2s ease !important;
+  border-radius: 0.5rem !important;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1) !important;
+  font-weight: 500 !important;
+  padding: 0.5rem 1.25rem !important;
+}
+
+.swal2-styled:hover {
+  transform: translateY(-2px) !important;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.12) !important;
+}
+
+.swal2-styled:active {
+  transform: translateY(0) !important;
+}
+
+.swal2-styled.swal2-confirm:not(.swal2-delete) {
+  background-color: var(--accent-color) !important;
+  color: var(--primary-bg) !important;
+}
+
+.swal2-styled.swal2-confirm:not(.swal2-delete):hover {
+  background-color: var(--action-edit) !important;
+}
+
+.swal2-styled.swal2-confirm:not(.swal2-delete):focus {
+  box-shadow: 0 0 0 3px rgba(56, 189, 248, 0.5) !important;
+}
+
+.swal2-styled.swal2-delete {
+  background-color: var(--danger) !important;
+  color: var(--text-primary) !important;
+}
+
+.swal2-styled.swal2-delete:hover {
+  background-color: #dc2626 !important;
+}
+
+.swal2-styled.swal2-delete:focus {
+  box-shadow: 0 0 0 3px rgba(239, 68, 68, 0.5) !important;
+}
+
+.swal2-styled.swal2-cancel {
+  background-color: #64748b !important;
+  color: var(--text-primary) !important;
+}
+
+.swal2-styled.swal2-cancel:hover {
+  background-color: #475569 !important;
+}
+
+.swal2-styled.swal2-cancel:focus {
+  box-shadow: 0 0 0 3px rgba(100, 116, 139, 0.5) !important;
+}
+
+.swal2-icon {
+  border-color: var(--accent-color) !important;
+}
+
+.swal2-icon.swal2-warning {
+  border-color: var(--warning) !important;
+  color: var(--warning) !important;
+}
+
+.swal2-icon.swal2-error {
+  border-color: var(--danger) !important;
+  color: var(--danger) !important;
+}
+
+.swal2-icon.swal2-success {
+  border-color: var(--success) !important;
+  color: var(--success) !important;
+}
+
+.swal2-icon.swal2-info {
+  border-color: var(--accent-color) !important;
+  color: var(--accent-color) !important;
+}
+
+.swal2-show {
+  animation: swal2-show var(--swal-animation-duration) !important;
+}
+
+.swal2-hide {
+  animation: swal2-hide var(--swal-animation-duration) !important;
+}
+
+@media (max-width: 480px) {
+  .custom-toast-popup {
+    width: 90%;
+    margin: 16px;
+  }
+  
+  .custom-confirm-popup {
+    padding: 15px;
+  }
+  
+  .custom-confirm-popup .swal2-title {
+    font-size: 20px;
+  }
+}
