@@ -81,7 +81,7 @@ Product Management System/
 
 1. Clone the repository
    ```bash
-   git clone https://github.com/MohamedV0/Product-Management-System.git
+   git clone https://github.com/MohamedV0/product-management.git
    ```
 2. Open `index.html` in your browser
 3. Add products by filling out the form and clicking "Add product"
