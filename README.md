@@ -25,13 +25,14 @@ This project was developed as part of the [Route Academy](https://www.linkedin.c
 - ➕ **Add products** with name, price, category, image, and description
 - ✅ **Validate inputs** before submission with real-time feedback
 - 🏷️ **Categorize products** (Phones, Screens, AirPods, Watches, Other)
-- 🔍 **Search functionality** to quickly find products
+- 🔍 **Search functionality** with term highlighting to quickly find products
 - 🗂️ **Filter products** by category
 - 📊 **Sort products** by date added, name, or price
 - 🗑️ **Delete products** with confirmation dialog
 - ✏️ **Edit existing products**
 - 📱 **Responsive design** for all devices
 - 💾 **Local storage** for data persistence
+- ⬆️ **Scroll to top** button for easy navigation
 
 ## 🛠️ Technology Stack
 
@@ -112,7 +113,7 @@ This implementation meets and extends the original project requirements:
 | Delete functionality | ✅ Remove products with confirmation |
 | Data validation | ✅ Regular expression pattern matching for all inputs |
 | Clean UI | ✅ Modern dark theme design with Bootstrap and custom CSS |
-| Enhanced features | ✅ Categories, search, sort, filter, and responsive design |
+| Enhanced features | ✅ Categories, search highlighting, sort, filter, scroll-to-top, and responsive design |
 
 ---
 

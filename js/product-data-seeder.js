@@ -17,7 +17,7 @@
 (function () {
     const sampleProducts = [{
             name: "IPhone X",
-            price: "999",
+            price: "9999",
             category: "Phones",
             description: "This is an auto-created example product to demonstrate the system's functionality.",
             image: "images/default-product.png",
@@ -25,7 +25,7 @@
         },
         {
             name: "IPhone 15 Pro",
-            price: "999",
+            price: "12999",
             category: "Phones",
             description: "Apple's latest flagship phone with A17 Pro chip, titanium design, and advanced camera system.",
             image: "https://raw.githubusercontent.com/hdpngworld/HPW/main/uploads/6503856f94473-iPhone%2015%20Pro.png",
@@ -33,7 +33,7 @@
         },
         {
             name: "Dell UltraSharp",
-            price: "899",
+            price: "8999",
             category: "Screens",
             description: "27-inch 4K monitor with accurate color reproduction, perfect for creative professionals.",
             image: "https://i.dell.com/is/image/DellContent/content/dam/ss2/product-images/dell-client-products/peripherals/monitors/u-series/u2723qe/media-gallery/monitor-u2723qe-gallery-1.psd?fmt=png-alpha&pscan=auto&scl=1&hei=402&wid=402&qlt=100,1&resMode=sharp2&size=402,402",
@@ -41,7 +41,7 @@
         },
         {
             name: "AirPods Max",
-            price: "549",
+            price: "6499",
             category: "AirPods",
             description: "Over-ear headphones with computational audio, active noise cancellation, and spatial audio.",
             image: "https://store.storeimages.cdn-apple.com/4982/as-images.apple.com/is/airpods-max-select-silver-202011?wid=940&hei=1112&fmt=png-alpha&.v=1604021221000",
@@ -49,7 +49,7 @@
         },
         {
             name: "Pixel Tablet",
-            price: "499",
+            price: "6999",
             category: "Other",
             description: "Google's versatile tablet that doubles as a smart home hub with vibrant display.",
             image: "https://images.unsplash.com/photo-1544244015-0df4b3ffc6b0?q=80&w=2033&auto=format&fit=crop",

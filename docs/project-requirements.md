@@ -25,9 +25,9 @@ This is a JavaScript application that implements a complete CRUD (Create, Read, 
 ### Technical Implementation Details
 1. **Validation Requirements**
    - Product Name: Must start with capital letter, between 3-15 characters
-   - Product Price: Must be between 100-999
+   - Product Price: Must be between 6000-60000
    - Product Category: Must be one of the predefined categories
-   - Product Description: Must be between 4-255 characters
+   - Product Description: Must be between 0-250 characters
    - Product Image: Required file upload
 
 2. **CRUD Operations**
@@ -39,10 +39,12 @@ This is a JavaScript application that implements a complete CRUD (Create, Read, 
 3. **UI Features**
    - Responsive design that works across device sizes
    - Dynamic filtering and sorting without page reload
+   - Search term highlighting in results
    - Category color-coding
    - Toast notifications for user actions
    - Confirmation dialogs for destructive actions
-   - Empty state handling
+   - Empty state handling with reset filters option
+   - Scroll-to-top button for better navigation
 
 ## Code Organization
 - Modular JavaScript with IIFE pattern to avoid global namespace pollution

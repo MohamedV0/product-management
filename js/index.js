@@ -42,15 +42,15 @@ const ProductApp = (function () {
     // Validation patterns
     PATTERNS: {
       name: /^[A-Z][a-zA-Z0-9\s]{2,14}$/,
-      price: /^([1-9][0-9]{2}|9[0-9]{2})$/,
-      description: /^.{4,255}$/
+      price: /^([6-9][0-9]{3}|[1-5][0-9]{4}|60000)$/,
+      description: /^.{0,250}$/
     },
 
     VALID_CATEGORIES: ["Phones", "Screens", "AirPods", "Watches", "Other"],
 
     DEFAULT_PRODUCT: {
       name: "IPhone X",
-      price: "999",
+      price: "9999",
       category: "Phones",
       description: "This is an auto-created example product to demonstrate the system's functionality.",
       image: "images/default-product.png",
@@ -148,6 +148,13 @@ const ProductApp = (function () {
       return icons[category] || icons['Other'];
     },
 
+    highlightSearchTerm(text, searchTerm) {
+      if (!searchTerm) return text;
+      
+      const regex = new RegExp(`(${searchTerm.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')})`, 'gi');
+      return text.replace(regex, '<mark>$1</mark>');
+    },
+
     displayAllProducts(allProducts, filteredProducts = null) {
       if (!DOM.productsContainer) return;
 
@@ -163,19 +170,27 @@ const ProductApp = (function () {
       Utilities.toggleVisibility(DOM.emptyState, false);
       Utilities.toggleVisibility(DOM.productsContainer, true);
 
+      // Get current search term for highlighting
+      const searchTerm = DOM.searchInput ? DOM.searchInput.value.trim() : "";
+
       // Use DocumentFragment for performance
       const fragment = document.createDocumentFragment();
       productsToDisplay.forEach((product, index) => {
         const tempContainer = document.createElement('div');
-        tempContainer.innerHTML = this.renderProductCard(product, index);
+        tempContainer.innerHTML = this.renderProductCard(product, index, searchTerm);
         fragment.appendChild(tempContainer.firstElementChild);
       });
 
       DOM.productsContainer.appendChild(fragment);
     },
 
-    renderProductCard(product, index) {
+    renderProductCard(product, index, searchTerm = "") {
       const productImageUrl = product.image || 'images/default-product.png';
+      
+      // Apply highlighting if search term exists
+      const highlightedName = this.highlightSearchTerm(product.name, searchTerm);
+      const highlightedDescription = this.highlightSearchTerm(product.description, searchTerm);
+      
       return `
         <div class="col">
           <div class="product-card h-100 shadow-sm">
@@ -183,23 +198,23 @@ const ProductApp = (function () {
               <img src="${productImageUrl}" class="product-card-image" alt="${product.name}" loading="lazy">
             </div>
             <div class="card-body p-3">
-              <h5 class="product-card-title text-truncate">${product.name}</h5>
+              <h5 class="product-card-title text-truncate">${highlightedName}</h5>
               <div class="mb-2">
                 <span class="product-card-category category-${product.category}">
                   ${this.getCategoryIcon(product.category)} ${product.category}
                 </span>
               </div>
-              <p class="product-card-desc small mb-3">${product.description}</p>
+              <p class="product-card-desc small mb-3">${highlightedDescription}</p>
               <div class="d-flex justify-content-between align-items-center">
                 <p class="product-card-price fw-bold mb-0">$${product.price}</p>
                 <div class="d-flex gap-2">
                   <button class="btn btn-sm btn-edit" data-index="${index}">
-                    <i class="fa-solid fa-pencil me-1"></i> 
-                    <span class="d-none d-sm-inline-block">Edit</span>
+                    <i class="fa-solid fa-pencil"></i>
+                    <span class="d-none d-sm-inline-block ms-1">Edit</span>
                   </button>
                   <button class="btn btn-sm btn-delete" data-index="${index}">
-                    <i class="fa-solid fa-trash me-1"></i> 
-                    <span class="d-none d-sm-inline-block">Delete</span>
+                    <i class="fa-solid fa-trash"></i>
+                    <span class="d-none d-sm-inline-block ms-1">Delete</span>
                   </button>
                 </div>
               </div>
@@ -517,7 +532,10 @@ const ProductApp = (function () {
         this.updateProduct(this.currentProductIndex, updatedProduct);
         this.currentProductIndex = null;
         if (DOM.submitBtn) DOM.submitBtn.textContent = "Add product";
-        UI.displayAllProducts(this.products);
+        
+        // Re-apply current filters to update the view
+        this.handleFiltering();
+        
         UI.clearForm();
         showNotification('success', 'Product Updated', 'Your product has been updated successfully!');
       } else {
@@ -532,7 +550,10 @@ const ProductApp = (function () {
         };
 
         this.addProduct(newProduct);
-        UI.displayAllProducts(this.products);
+        
+        // Re-apply current filters to update the view
+        this.handleFiltering();
+        
         UI.clearForm();
         showNotification('success', 'Product Added', 'Your product has been added successfully!');
       }
@@ -566,7 +587,10 @@ const ProductApp = (function () {
         Swal.fire(config).then((result) => {
           if (result.isConfirmed) {
             this.deleteProduct(index);
-            UI.displayAllProducts(this.products);
+            
+            // Re-apply current filters to update the view
+            this.handleFiltering();
+            
             showNotification('success', 'Deleted!', 'Your product has been deleted.');
           }
         });
