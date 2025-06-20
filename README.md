@@ -10,13 +10,19 @@
 
 This project was developed as part of the [Route Academy](https://www.linkedin.com/company/routeacademy/) Full Stack Development Program, a 12-month intensive training program. It represents a JavaScript assignment in the curriculum, focusing on implementing CRUD operations in a web application.
 
+<div align="center">
+  <a href="https://mohamedv0.github.io/product-management/">
+    <img src="https://img.shields.io/badge/View_Live_Demo-4285F4?style=for-the-badge&logo=googlechrome&logoColor=white" alt="Live Preview" />
+  </a>
+</div>
+
 ## 💫 Interface Preview
 
 <div align="center">
   <img src="docs/ui-screenshots/Hero.png" alt="Product Management System Interface" width="800">
   
-  <a href="docs/ui-screenshots" style="display: inline-block; margin-top: 15px; padding: 8px 16px; background: linear-gradient(45deg, #4CAF50, #2E7D32); color: white; text-decoration: none; border-radius: 6px; font-weight: bold; box-shadow: 0 2px 4px rgba(0,0,0,0.2); transition: all 0.3s ease;">
-    <span style="vertical-align: middle; font-size: 0.9em;">📸 View All Screenshots</span>
+  <a href="docs/ui-screenshots">
+    <img src="https://img.shields.io/badge/View_All_Screenshots-4285F4?style=for-the-badge&logo=instagram&logoColor=white" alt="View All Screenshots" />
   </a>
 </div>
 
